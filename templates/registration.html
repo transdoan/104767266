@@ -1,0 +1,35 @@
+<!-- registration.html allows the user to make an account -->
+{% extends "layout.html" %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block main %}
+    <!-- Create a form to get user's username and password for registration-->
+    <p style> Password must have at least 1 letter, number and symbol.<br> Together, it must have a length of at least (5 + 3) characters! 🤣 </p>
+    <form action="/register" method="post">
+        <div class="mb-3">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="username" name="username" placeholder="Username" type="text">
+        </div>
+        <!-- Prompt user to verify his/her password -->
+        <div class="mb-3">
+            <input class="form-control mx-auto w-auto" id="password" name="password" placeholder="Password" type="password">
+            <input class="form-control mx-auto w-auto" id="password" name="confirmation" placeholder="Confirm Password" type="password">
+        </div>
+        <fieldset>
+            <label for="field4"><span STYLE="font-size:15.0pt">Profile Picture Select (It's a surprise!)</span>
+                <select onchange="index()" name="profilepic" class="dropdown">
+                    <option value="/static/A.png">A</option>
+                    <option value="/static/B.png">B</option>
+                    <option value="/static/C.png">C</option>
+                    <option value="/static/D.png">D</option>
+                    <option value="/static/E.png">E</option>
+                    <option value="/static/F.png">F</option>
+                </select>
+            </label>
+        </fieldset>
+        <button class="btn btn-primary" type="submit">Register</button>
+    </form>
+{% endblock %}
+

@@ -1,0 +1,66 @@
+<!--discover.html prints out all of the public entries and allows the user to filter by genre -->
+{% extends "layout.html" %}
+
+{% block title %}
+    Discover
+{% endblock %}
+
+{% block main %}
+    <main class="container py-5 text-center">
+    <p> Discover new music with others. </p>
+        <div>
+            <form action="/filter" method="POST">
+                <fieldset><legend></legend>
+                    <label for="field4"><span STYLE="font-size:15.0pt">Genres</span>
+                        <select onchange="filter()" name="filter-genre" class="dropdown">
+                           <option value="All" name="filter-genre">All</option>
+                            <option value="Pop" name="filter-genre">Pop</option>
+                            <option value="Rock" name="filter-genre">Rock</option>
+                            <option value="Metal" name="filter-genre">Metal</option>
+                            <option value="K-pop" name="filter-genre">K-pop</option>
+                            <option value="EDM" name="filter-genre">EDM</option>
+                            <option value="R&B" name="filter-genre">R&B</option>
+                            <option value="Hip-Hop" name="filter-genre">Hip-Hop</option>
+                            <option value="Country" name="filter-genre">Country</option>
+                            <option value="Rap" name="filter-genre">Rap</option>
+                            <option value="Latin" name="filter-genre">Latin</option>
+                            <option value="Folk" name="filter-genre">Folk</option>
+                            <option value="Jazz" name="filter-genre">Jazz</option>
+                            <option value="Blues" name="filter-genre">Blues</option>
+                            <option value="Classical" name="filter-genre">Classical</option>
+                            <option value="Emo" name="filter-genre">Emo</option>
+                            <option value="Indie" name="filter-genre">Indie</option>
+                        </select>
+                    </label>
+                    <button class="btn btn-primary" type="submit">Submit</button>
+                </fieldset>
+                <br>
+
+            </form>
+            <br>
+        </div>
+        <table class="table table-striped table-dark">
+            <thead>
+                <tr>
+                    <th class="headers" scope="col">Username</th>
+                    <th class="headers" scope="col">Song</th>
+                    <th class="headers" scope="col">Artist</th>
+                    <th class="headers" scope="col">Entry</th>
+                    <th class="headers" scope="col">Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Jinjja table goes through the entries table and prints out the username, song name, artist name, entry, and time of an entry if the user made it public. The username and entry are links so they can be clicked on  -->
+                {% for row in entries %}
+                        <tr>
+                            <td class="text-start"><a href="{{ url_for('displayprofile', user_id = row.user_id) }}">{{ row.username }}</a></td>
+                            <td class="text-start">{{ row.song_name }}</td>
+                            <td class="text-start">{{ row.artist_name }}</td>
+                            <td class="text-start"><a href="{{ url_for('entryfull', entry_id = row.id) }}" id="previewentry">{{ row.input }}</a></td>
+                            <td class="text-start">{{ row.time }}</td>
+                        </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </main>
+{% endblock %}

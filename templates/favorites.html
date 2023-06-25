@@ -1,0 +1,35 @@
+<!-- favorites.html displays all of the users favorited entries -->
+{% extends "layout.html" %}
+
+{% block title %}
+    My Favorites
+{% endblock %}
+
+{% block main %}
+    <main class="container py-5 text-center">
+    <p> Favorited Music Entries </p>
+        <table class="table table-striped table-dark">
+            <thead>
+                <tr>
+                    <th class="headers" scope="col">Username</th>
+                    <th class="headers" scope="col">Song</th>
+                    <th class="headers" scope="col">Artist</th>
+                    <th class="headers" scope="col">Entry</th>
+                    <th class="headers" scope="col">Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Jinjja table goes through favorites table and prints out the entries and attributes connected to it (song, artist, etc) -->
+                {% for row in favorited_entries %}
+                        <tr>
+                                <td class="text-start"><a href="{{ url_for('displayprofile', user_id = row.user_id) }}">{{ row.username }}</a></td>
+                                <td class="text-start">{{ row.song_name }}</td>
+                                <td class="text-start">{{ row.artist_name }}</td>
+                                <td class="text-start"><a href="{{ url_for('entryfullfavorited', entry_id = row.id) }}" id="previewentry">{{ row.input }}</a></td>
+                                <td class="text-start">{{ row.time }}</td>
+                        </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </main>
+{% endblock %}

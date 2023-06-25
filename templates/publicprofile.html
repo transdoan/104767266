@@ -1,0 +1,31 @@
+<!-- publicprofile.html displays all of a user's public entries once you click on the 'entries' button from their profile -->
+{% extends "layout.html" %}
+
+{% block title %}
+    Public Profile
+{% endblock %}
+
+{% block main %}
+    <main class="container py-5 text-center">
+        <p>Showing {{ username[0]['username'] }}'s Entries</p>
+        <table class="table table-striped table-dark">
+            <thead>
+                <tr>
+                    <th class="text-start" scope="col">Song</th>
+                    <th class="text-start" scope="col">Artist</th>
+                    <th class="text-start" scope="col">Entry</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Jinjja table goes through the entries table to display that user's public entries (w/ song and artist)  -->
+                {% for row in entries %}
+                <tr>
+                    <td class="text-start">{{ row.song_name }}</td>
+                    <td class="text-start">{{ row.artist_name }}</td>
+                    <td class="text-start"><a href="{{ url_for('entryfull', entry_id = row.id) }}" id="previewentry">{{ row.input }}</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </main>
+{% endblock %}

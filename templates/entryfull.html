@@ -1,0 +1,22 @@
+<!-- entryfull.html displays the entire entry once the entry preview is clicked -->
+{% extends "layout.html" %}
+
+{% block title %}
+    Full Entry
+{% endblock %}
+
+{% block main %}
+    <main class="container py-5 text-center">
+                <div class="form-style-3">
+                    <fieldset><legend></legend>
+                        <label for="field1"><span>Song</span><input type="text" class="input-field" value="{{ entries[0]['song_name'] }}" readonly/></label>
+                        <label for="field2"><span>Artist</span><input type="text" class="input-field" value="{{ entries[0]['artist_name'] }}" readonly/></label>
+                        <label for="field3"><span>User</span><input type="text" class="input-field" value="{{ entries[0]['username'] }}" readonly/></label>
+                        <label for="field4"><span>Genre</span><input type="text" class="input-field" value="{{ entries[0]['genre'] }}" readonly/></label>
+                        <label for="field6"><span id="entrylabel">Entry</span><textarea class="textarea-field" id="inputdisplay" readonly>{{ entries[0]['input'] }}</textarea></label>
+                        <!-- Button style from https://fdossena.com/?p=about.frag -->
+                        <a href="{{ url_for('favorited', entry_id = entries[0]['id']) }}" class="button4" style="background-color:#3f5ed4">Favorite</a>
+                    </fieldset>
+                </div>
+    </main>
+{% endblock %}

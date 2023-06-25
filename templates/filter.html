@@ -1,0 +1,64 @@
+<!-- filter.html is the page that displays the filtered entries  -->
+{% extends "layout.html" %}
+
+{% block title %}
+    Discover
+{% endblock %}
+
+{% block main %}
+    <main class="container py-5 text-center">
+            <div>
+            <form action="/filter" method="POST" class="filterform">
+                <fieldset><legend></legend>
+                    <label for="field4"><span STYLE="font-size:15.0pt">Genres</span>
+                        <select onchange="filter()" name="filter-genre" class="dropdown">
+                           <option value="All" name="filter-genre">All</option>
+                            <option value="Pop">Pop</option>
+                            <option value="Rock">Rock</option>
+                            <option value="Metal">Metal</option>
+                            <option value="K-pop">K-pop</option>
+                            <option value="EDM">EDM</option>
+                            <option value="R&B">R&B</option>
+                            <option value="Hip-Hop">Hip-Hop</option>
+                            <option value="Country">Country</option>
+                            <option value="Rap">Rap</option>
+                            <option value="Latin">Latin</option>
+                            <option value="Folk">Folk</option>
+                            <option value="Jazz">Jazz</option>
+                            <option value="Blues">Blues</option>
+                            <option value="Classical">Classical</option>
+                            <option value="Emo">Emo</option>
+                            <option value="Indie">Indie</option>
+                        </select>
+                    </label>
+                    <button class="btn btn-primary" type="submit">Submit</button>
+                </fieldset>
+            </form>
+        </div>
+        <br>
+        <br>
+        <table class="table table-striped table-dark">
+            <thead>
+                <tr>
+                    <th class="headers" scope="col">Username</th>
+                    <th class="headers" scope="col">Song</th>
+                    <th class="headers" scope="col">Artist</th>
+                    <th class="headers" scope="col">Entry</th>
+                    <th class="headers" scope="col">Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Jinjja table that loops through the entries table and only selects those entries that fit the genre criteria -->
+                {% for row in entries %}
+                    <tr>
+                        <td class="text-start"><a href="{{ url_for('displayprofile', user_id = row.user_id) }}">{{ row.username }}</a></td>
+                        <td class="text-start">{{ row.name }}</td>
+                        <td class="text-start">{{ row.artist_name }}</td>
+                        <td class="text-start"><a href="{{ url_for('entryfull', entry_id = row.id) }}" id="previewentry">{{ row.input }}</a></td>
+                        <td class="text-start">{{ row.time }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </main>
+{% endblock %}

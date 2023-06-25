@@ -1,0 +1,51 @@
+<!--create.html allows the user to create a new entry to pass their inputs to python-->
+{% extends "layout.html" %}
+
+{% block title %}
+    Create Entry
+{% endblock %}
+
+{% block main %}
+
+    <main class="container py-5 text-center" class="makefontwhite">
+        <div class="form-style-3">
+            <form action="/create" method="post">
+                <fieldset><legend></legend>
+                    <label for="field1"><span>Song <span class="required">*</span></span><input type="text" class="input-field" name="song-name"" value=""/></label>
+                    <label for="field2"><span>Artist<span class="required">*</span></span><input type="text" class="input-field" name="artist-name" value=""/></label>
+                    <label for="field4"><span>Privacy<span class="required">*</span></span>
+                        <select name="privacy" class="select-field">
+                            <option value="1" id="option1">Only I can view</option>
+                            <option value="0" id="option2">Everyone can view</option>
+                        </select>
+                    </label>
+                    <label for="field4"><span>Genre<span class="required">*</span></span>
+                        <select name="genre" class="select-field">
+                            <option value="Pop">Pop</option>
+                            <option value="Rock">Rock</option>
+                            <option value="Metal">Metal</option>
+                            <option value="K-pop">K-pop</option>
+                            <option value="EDM">EDM</option>
+                            <option value="R&B">R&B</option>
+                            <option value="Hip-Hop">Hip-Hop</option>
+                            <option value="Country">Country</option>
+                            <option value="Rap">Rap</option>
+                            <option value="Latin">Latin</option>
+                            <option value="Folk">Folk</option>
+                            <option value="Jazz">Jazz</option>
+                            <option value="Blues">Blues</option>
+                            <option value="Classical">Classical</option>
+                            <option value="Emo">Emo</option>
+                            <option value="Indie">Indie</option>
+                        </select>
+                    </label>
+                </fieldset>
+
+                <fieldset><legend></legend>
+                    <label for="field6"><span>What are the vibes?<span class="required">*</span></span><textarea name="entry" class="textarea-field" id="entrytext"></textarea></label>
+                    <label><span> </span><input type="submit" value="Share" /></label>
+                </fieldset>
+            </form>
+            </div>
+    </main>
+{% endblock %}

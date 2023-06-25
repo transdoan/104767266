@@ -1,0 +1,26 @@
+<!-- editprofile.html lets the user edit their profile picture -->
+{% extends "layout.html" %}
+
+{% block title %}
+    Pick profile
+{% endblock %}
+
+{% block main %}
+<main>
+    <form action="/index" method="POST" class="filterform">
+        <fieldset><legend></legend>
+            <label for="field4"><span STYLE="font-size:15.0pt">Profile Picture Select</span>
+                <select onchange="index()" name="profilepic" class="dropdown">
+                    <option value="/static/A.png">A</option>
+                    <option value="/static/B.png"">B</option>
+                    <option value="/static/C.png">C</option>
+                    <option value="/static/D.png">D</option>
+                    <option value="/static/E.png">E</option>
+                    <option value="/static/F.png">F</option>
+                </select>
+            </label>
+            <button class="btn btn-primary" type="submit">Submit</button>
+        </fieldset>
+    </form>
+</main>
+{% endblock %}

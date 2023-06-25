@@ -1,0 +1,29 @@
+<!-- profilefollowed.html displays the profile of a user you've followed, but this time with an unfollow button-->
+{% extends "layout.html" %}
+
+{% block title %}
+    Profile but Followed
+{% endblock %}
+
+{% block main %}
+<main>
+    <!-- Profile: https://bbbootstrap.com/snippets/bootstrap-5-profile-card-animation-74461039 -->
+    <div class="container mt-5 d-flex justify-content-center" id="profile">
+        <div class="card p-3">
+            <div class="d-flex align-items-center">
+                <div class="image"> <img src="{{ profile[0]['picture'] }}" alt="Profile Picture" id="profilepic" width=150px height=150px STYLE="margin-right: 14px"/> </div>
+                    <div class="ml-3 w-100">
+                        <h4 class="mb-0 mt-0">{{ profile[0]['username'] }}</h4>
+                    <div class="button mt-2 d-flex flex-row align-items-center">
+                        <form action="/showentries" method="POST">
+                            <button class="btn btn-sm btn-outline-primary w-100" name="user_id" value="{{ profile[0]['user_id'] }}">Entries</button>
+                        </form>
+                        <form action="/unfollow" method="POST">
+                            <button class="btn btn-sm btn-primary w-100 ml-2" name="following_id" value="{{ profile[0]['user_id'] }}">Unfollow</button>
+                        </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}

@@ -1,0 +1,17 @@
+<!-- apology4.html lets user know they've already followed a user -->
+{% extends "layout.html" %}
+
+{% block title %}
+    Follow Apology
+{% endblock %}
+
+{% block main %}
+    <main>
+        <form action="/feed" method="GET">
+            <br>
+            <br>
+            You already followed this person.
+            <button class="btn btn-primary" type="submit">Go to Feed</button>
+        </form>
+    </main>
+{% endblock %}

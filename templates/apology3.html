@@ -1,0 +1,17 @@
+<!-- apology3 renders html page when user has already favorited an entry-->
+{% extends "layout.html" %}
+
+{% block title %}
+    Favorites Apology
+{% endblock %}
+
+{% block main %}
+    <main>
+        <form action="/favorites" method="GET">
+            <br>
+            <br>
+            You already favorited this.
+            <button class="btn btn-primary" type="submit">Go to Favorites</button>
+        </form>
+    </main>
+{% endblock %}

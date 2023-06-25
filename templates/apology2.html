@@ -1,0 +1,48 @@
+<!-- apology2 renders an apology if the genre chosen has no entries to display -->
+{% extends "layout.html" %}
+
+{% block title %}
+    Filter Apology
+{% endblock %}
+
+{% block main %}
+    <main class="container py-5 text-center">
+        <div>
+            <form action="/filter" method="POST">
+                <fieldset><legend></legend>
+                    <label for="field4"><span STYLE="font-size:15.0pt">Genres</span>
+                        <select onchange="filter()" name="filter-genre" class="dropdown">
+                           <option value="All" name="filter-genre">All</option>
+                            <option value="Pop" name="filter-genre">Pop</option>
+                            <option value="Rock" name="filter-genre">Rock</option>
+                            <option value="Metal" name="filter-genre">Metal</option>
+                            <option value="K-pop" name="filter-genre">K-pop</option>
+                            <option value="EDM" name="filter-genre">EDM</option>
+                            <option value="R&B" name="filter-genre">R&B</option>
+                            <option value="Hip-Hop" name="filter-genre">Hip-Hop</option>
+                            <option value="Country" name="filter-genre">Country</option>
+                            <option value="Rap" name="filter-genre">Rap</option>
+                            <option value="Latin" name="filter-genre">Latin</option>
+                            <option value="Folk" name="filter-genre">Folk</option>
+                            <option value="Jazz" name="filter-genre">Jazz</option>
+                            <option value="Blues" name="filter-genre">Blues</option>
+                            <option value="Classical" name="filter-genre">Classical</option>
+                            <option value="Emo" name="filter-genre">Emo</option>
+                            <option value="Indie" name="filter-genre">Indie</option>
+                        </select>
+                    </label>
+                    <button class="btn btn-primary" type="submit" onchange="create()">Submit</button>
+                </fieldset>
+            </form>
+        </div>
+        <div class="alert">
+        <form action="/create" method="GET">
+                <br>
+                <br>
+                Unfortunately, no entries with this genre have been made.
+                <button class="btn btn-primary" type="submit">Create an entry</button>
+        </form>
+
+        </div>
+    </main>
+{% endblock %}
