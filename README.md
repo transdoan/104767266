@@ -1,4 +1,3 @@
-README.md:
 About Jukebox
 
 As avid listeners of music, we find that each song not only affects our mood, but also our view of the world. Therefore, it was important for us to have a place to document those feelings and thoughts. This passion is why Jukebox exists; it's a platform to permanently create, share, and discover what makes music great.
