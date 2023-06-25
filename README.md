@@ -6,17 +6,17 @@ Features:
 
 -- Create posts
 
-  -- Set posts to private or public
+    -- Set posts to private or public
   
-  -- Add tags to posts
+    -- Add tags to posts
   
-  -- Delete posts
+    -- Delete posts
   
 -- Public feed of other user posts
 
 -- Follow other users
 
-  -- Access to a following feed
+    -- Access to a following feed
   
 -- Favorite other users' posts
 
