@@ -1,4 +1,4 @@
-Jukebox is a website for users to create and share thoughts on music.
+Jukebox is a website for users to create and share thoughts on music. Developed by Tran Doan and Ariana Delgado.
 
 Features:
 
