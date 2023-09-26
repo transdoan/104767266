@@ -1,5 +1,7 @@
 Jukebox is a website for users to create and share thoughts on music. Developed by Tran Doan (backend and frontend) and Ariana Delgado (frontend).
 
+See our walkthrough: https://www.youtube.com/embed/jqp3kgRPUgA?autoplay=1&rel=0
+
 Features:
 
     -- Register, login, and logout of an account
